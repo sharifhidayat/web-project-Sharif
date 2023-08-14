@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Content Change</title>
+    <style>
+        body {
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .gray-background {
+            background-color: gray !important;
+        }
+    </style>
+</head>
+<body>
+    <h2>What Can JavaScript Do?</h2>
+
+    <p id="demo">JavaScript can change HTML content.</p>
+
+    <button type="button" onclick="changeContent(); checkButtonClicks(1)">Click Me!</button>
+
+    <br><hr>
+
+    <p id="test">test</p>
+
+    <br><hr>
+
+    <p id="dem">JavaScript can change the style of an HTML element.</p>
+
+    <button type="button" onclick="changeStyle(); checkButtonClicks(2)">Click Me!</button>
+
+    <br><hr>
+
+    <p id="deo">JavaScript can hide HTML elements.</p>
+
+    <button type="button" onclick="hideElement(); checkButtonClicks(3)">Click Me!</button>
+
+    <br><hr>
+
+    <p>JavaScript can show hidden HTML elements.</p>
+
+    <p id="emo" style="display:none">Hello JavaScript!</p>
+
+    <button type="button" onclick="showElement(); checkButtonClicks(4)">Click Me!</button>
+
+    <script>
+        var buttonClicks = [0, 0, 0, 0];
+
+        function changeContent() {
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        }
+
+        function changeStyle() {
+            document.getElementById("dem").style.fontSize = "35px";
+        }
+
+        function hideElement() {
+            document.getElementById("deo").style.display = "none";
+        }
+
+        function showElement() {
+            document.getElementById("emo").style.display = "block";
+        }
+
+        function checkButtonClicks(buttonIndex) {
+            if (buttonClicks[buttonIndex - 1] === 0) {
+                buttonClicks[buttonIndex - 1] = 1;
+            }
+
+            if (buttonClicks.every(click => click === 1)) {
+                document.body.classList.add("gray-background");
+            }
+        }
+    </script>
+</body>
+</html>
